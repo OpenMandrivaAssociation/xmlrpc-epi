@@ -20,6 +20,7 @@ Patch1:		xmlrpc-epi-0.51-gcc4.patch
 # (fc) 0.51-10mdv build using system expat (Linden Labs)
 Patch2:		xmlrpc-epi-0.51-excise_expat.patch
 BuildRequires:	expat-devel
+BuildRequires:  automake1.4
 
 %description
 xmlrpc-epi is an implementation of the xmlrpc protocol in C. It provides an 
