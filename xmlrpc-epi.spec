@@ -1,6 +1,6 @@
 %define name		xmlrpc-epi
 %define version		0.51
-%define release		%mkrel 9
+%define release		%mkrel 10
 
 %define lib_major	0
 %define lib_name_orig	xmlrpc
@@ -17,6 +17,9 @@ URL:		http://xmlrpc-epi.sourceforge.net/
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		xmlrpc-epi-0.51-64bit-fixes.patch
 Patch1:		xmlrpc-epi-0.51-gcc4.patch
+# (fc) 0.51-10mdv build using system expat (Linden Labs)
+Patch2:		xmlrpc-epi-0.51-excise_expat.patch
+BuildRequires:	expat-devel
 
 %description
 xmlrpc-epi is an implementation of the xmlrpc protocol in C. It provides an 
@@ -59,6 +62,11 @@ was later modified to incorporate concepts from the xmlrpc protocol.
 %setup -q
 %patch0 -p1 -b .64bit-fixes
 %patch1 -p1 -b .gcc4
+%patch2 -p1 -b .excice_expat
+
+#needed by patch2
+autoconf
+automake-1.4
 
 # Make it lib64 aware
 find . -name Makefile.in | xargs perl -pi -e "s,-L\@prefix\@/lib,,g"
