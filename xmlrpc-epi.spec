@@ -5,7 +5,7 @@
 Summary:	An implementation of the XML-RPC protocol in C
 Name:		xmlrpc-epi
 Version:	0.51
-Release:	%mkrel 12
+Release:	%mkrel 13
 License:	BSD
 Group:		System/Libraries
 URL:		http://xmlrpc-epi.sourceforge.net
@@ -42,7 +42,7 @@ was later modified to incorporate concepts from the xmlrpc protocol.
 Summary:	Libraries, includes, etc. to develop XML and HTML applications
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
-Provides:	lib%{lib_name_orig}-devel = %{version}-%{release}
+Provides:	lib%{libname_orig}-devel = %{version}-%{release}
 %if "%{_lib}" != "lib"
 Conflicts:	libxmlrpc0-devel < 0.51-7mdk
 %endif
