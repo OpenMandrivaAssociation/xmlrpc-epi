@@ -5,7 +5,7 @@
 Summary:	An implementation of the XML-RPC protocol in C
 Name:		xmlrpc-epi
 Version:	0.51
-Release:	%mkrel 15
+Release:	%mkrel 16
 License:	BSD
 Group:		System/Libraries
 URL:		http://xmlrpc-epi.sourceforge.net
@@ -14,8 +14,9 @@ Patch0:		xmlrpc-epi-0.51-64bit-fixes.patch
 Patch1:		xmlrpc-epi-0.51-gcc4.patch
 # (fc) 0.51-10mdv build using system expat (Linden Labs)
 Patch2:		xmlrpc-epi-0.51-excise_expat.patch
+Patch3:		xmlrpc-epi-0.51-format_not_a_string_literal_and_no_format_arguments.diff
 BuildRequires:	expat-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 xmlrpc-epi is an implementation of the xmlrpc protocol in C. It provides an 
@@ -59,6 +60,7 @@ was later modified to incorporate concepts from the xmlrpc protocol.
 %patch0 -p1 -b .64bit-fixes
 %patch1 -p1 -b .gcc4
 %patch2 -p1 -b .excice_expat
+%patch3 -p1 -b .format_not_a_string_literal_and_no_format_arguments
 
 #needed by patch2
 libtoolize --copy --force
