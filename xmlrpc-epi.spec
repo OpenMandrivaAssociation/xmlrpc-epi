@@ -4,17 +4,13 @@
 
 Summary:	An implementation of the XML-RPC protocol in C
 Name:		xmlrpc-epi
-Version:	0.51
-Release:	%mkrel 16
+Version:	0.54
+Release:	%mkrel 1
 License:	BSD
 Group:		System/Libraries
 URL:		http://xmlrpc-epi.sourceforge.net
-Source0:	%{name}-%{version}.tar.bz2
-Patch0:		xmlrpc-epi-0.51-64bit-fixes.patch
-Patch1:		xmlrpc-epi-0.51-gcc4.patch
-# (fc) 0.51-10mdv build using system expat (Linden Labs)
-Patch2:		xmlrpc-epi-0.51-excise_expat.patch
-Patch3:		xmlrpc-epi-0.51-format_not_a_string_literal_and_no_format_arguments.diff
+Source0:	http://sunet.dl.sourceforge.net/sourceforge/xmlrpc-epi/xmlrpc-epi-%{version}.tar.gz
+Patch0:		xmlrpc-epi-0.51-format_not_a_string_literal_and_no_format_arguments.diff
 BuildRequires:	expat-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -56,25 +52,21 @@ based upon proprietary code written for internal usage at Epinions.com, and
 was later modified to incorporate concepts from the xmlrpc protocol.
 
 %prep
-%setup -q
-%patch0 -p1 -b .64bit-fixes
-%patch1 -p1 -b .gcc4
-%patch2 -p1 -b .excice_expat
-%patch3 -p1 -b .format_not_a_string_literal_and_no_format_arguments
 
-#needed by patch2
-libtoolize --copy --force
-aclocal
-autoconf
-automake -a -c --foreign
+%setup -q
+%patch0 -p1 -b .format_not_a_string_literal_and_no_format_arguments
 
 # Make it lib64 aware
-find . -name Makefile.in | xargs perl -pi -e "s,-L\@prefix\@/lib,,g"
-perl -pi -e "s,-L/usr/local/lib\b,," configure
+find . -name "Makefile.*" | xargs perl -pi -e "s,-L\@prefix\@/lib,,g"
+
+perl -pi -e "s,-L/usr/local/lib\b,," configure*
+perl -pi -e "s|withval/lib|withval/%{_lib}|g" configure*
 
 %build
-%configure2_5x
+autoreconf -fis
 
+%configure2_5x \
+    --with-expat=%{_prefix}
 
 #don't use parallel compilation, it is broken 
 # (tpg) this is better ;)
