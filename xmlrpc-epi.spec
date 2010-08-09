@@ -4,8 +4,8 @@
 
 Summary:	An implementation of the XML-RPC protocol in C
 Name:		xmlrpc-epi
-Version:	0.54
-Release:	%mkrel 3
+Version:	0.54.1
+Release:	%mkrel 1
 License:	BSD
 Group:		System/Libraries
 URL:		http://xmlrpc-epi.sourceforge.net
@@ -49,7 +49,7 @@ was later modified to incorporate concepts from the xmlrpc protocol.
 
 %prep
 
-%setup -q
+%setup -q -n xmlrpc
 %patch0 -p1 -b .format_not_a_string_literal_and_no_format_arguments
 %patch1 -p0 -b .no_samples
 
