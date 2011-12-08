@@ -5,7 +5,7 @@
 Summary:	An implementation of the XML-RPC protocol in C
 Name:		xmlrpc-epi
 Version:	0.54.1
-Release:	%mkrel 2
+Release:	3
 License:	BSD
 Group:		System/Libraries
 URL:		http://xmlrpc-epi.sourceforge.net
@@ -13,7 +13,6 @@ Source0:	http://sunet.dl.sourceforge.net/sourceforge/xmlrpc-epi/xmlrpc-epi-%{ver
 Patch0:		xmlrpc-epi-0.51-format_not_a_string_literal_and_no_format_arguments.diff
 Patch1:		xmlrpc-epi-0.54-no_samples.diff
 BuildRequires:	expat-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 xmlrpc-epi is an implementation of the xmlrpc protocol in C. It provides an 
@@ -36,7 +35,7 @@ was later modified to incorporate concepts from the xmlrpc protocol.
 %package -n	%{develname}
 Summary:	Libraries, includes, etc. to develop XML and HTML applications
 Group:		Development/C
-Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libname} >= %{version}-%{release}
 Provides:	libxmlrpc-devel = %{version}-%{release}
 Provides:	xmlrpc-epi-devel = %{version}-%{release}
 
@@ -78,27 +77,15 @@ rm -rf %{buildroot}
 install -d %{buildroot}%{_includedir}/xmlrpc-epi
 mv %{buildroot}%{_includedir}/*.h %{buildroot}%{_includedir}/xmlrpc-epi/
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
+# cleanup
+rm -f %{buildroot}%{_libdir}/*.*a
 
 %files -n %{libname}
-%defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog README
 %{_libdir}/lib*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %doc INSTALL
 %dir %{_includedir}/xmlrpc-epi
 %{_includedir}/xmlrpc-epi/*
 %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_libdir}/lib*.a
