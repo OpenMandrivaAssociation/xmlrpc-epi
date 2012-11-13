@@ -1,0 +1,81 @@
+diff -Naurp xmlrpc-epi-0.54/sample/client.c xmlrpc-epi-0.54.oden/sample/client.c
+--- xmlrpc-epi-0.54/sample/client.c	2008-03-21 20:52:51.000000000 +0100
++++ xmlrpc-epi-0.54.oden/sample/client.c	2009-06-10 17:04:08.000000000 +0200
+@@ -177,7 +177,7 @@ int main(int argc, char **argv)
+      char *outBuf = XMLRPC_REQUEST_ToXML(request, 0);
+ 
+      if(outBuf) {
+-        printf(outBuf);
++        printf("%s", outBuf);
+         free(outBuf);
+      }
+   }
+diff -Naurp xmlrpc-epi-0.54/sample/hello_client.c xmlrpc-epi-0.54.oden/sample/hello_client.c
+--- xmlrpc-epi-0.54/sample/hello_client.c	2008-03-21 20:52:51.000000000 +0100
++++ xmlrpc-epi-0.54.oden/sample/hello_client.c	2009-06-10 17:04:08.000000000 +0200
+@@ -43,7 +43,7 @@ int main(int argc, char **argv)
+      char *outBuf = XMLRPC_REQUEST_ToXML(request, 0);
+ 
+      if(outBuf) {
+-        printf(outBuf);
++        printf("%s", outBuf);
+         free(outBuf);
+      }
+   }
+diff -Naurp xmlrpc-epi-0.54/sample/hello_server.c xmlrpc-epi-0.54.oden/sample/hello_server.c
+--- xmlrpc-epi-0.54/sample/hello_server.c	2008-04-02 12:35:12.000000000 +0200
++++ xmlrpc-epi-0.54.oden/sample/hello_server.c	2009-06-10 17:04:08.000000000 +0200
+@@ -76,7 +76,7 @@ int main(int argc, char **argv)
+      char *outBuf = XMLRPC_REQUEST_ToXML(response, 0);
+ 
+      if(outBuf) {
+-        printf(outBuf);
++        printf("%s", outBuf);
+         free(outBuf);
+      }
+   }
+diff -Naurp xmlrpc-epi-0.54/sample/sample.c xmlrpc-epi-0.54.oden/sample/sample.c
+--- xmlrpc-epi-0.54/sample/sample.c	2008-03-21 20:52:51.000000000 +0100
++++ xmlrpc-epi-0.54.oden/sample/sample.c	2009-06-10 17:04:08.000000000 +0200
+@@ -450,7 +450,7 @@ int main(int argc, char **argv)
+      char *outBuf = XMLRPC_REQUEST_ToXML(request, 0);
+ 
+      if(outBuf) {
+-        printf(outBuf);
++        printf("%s", outBuf);
+         free(outBuf);
+      }
+   }
+@@ -460,7 +460,7 @@ int main(int argc, char **argv)
+      char *outBuf = XMLRPC_REQUEST_ToXML(response, 0);
+ 
+      if(outBuf) {
+-        printf(outBuf);
++        printf("%s", outBuf);
+         free(outBuf);
+      }
+   }
+diff -Naurp xmlrpc-epi-0.54/sample/server.c xmlrpc-epi-0.54.oden/sample/server.c
+--- xmlrpc-epi-0.54/sample/server.c	2008-04-02 12:35:12.000000000 +0200
++++ xmlrpc-epi-0.54.oden/sample/server.c	2009-06-10 17:04:08.000000000 +0200
+@@ -374,7 +374,7 @@ int main(int argc, char **argv)
+      char *outBuf = XMLRPC_REQUEST_ToXML(response, 0);
+ 
+      if(outBuf) {
+-        printf(outBuf);
++        printf("%s", outBuf);
+         free(outBuf);
+      }
+   }
+diff -Naurp xmlrpc-epi-0.54/sample/server_compliance_test.c xmlrpc-epi-0.54.oden/sample/server_compliance_test.c
+--- xmlrpc-epi-0.54/sample/server_compliance_test.c	2008-04-02 12:35:13.000000000 +0200
++++ xmlrpc-epi-0.54.oden/sample/server_compliance_test.c	2009-06-10 17:04:08.000000000 +0200
+@@ -423,7 +423,7 @@ int main(int argc, char **argv)
+       char *outBuf = XMLRPC_REQUEST_ToXML(response, 0);
+ 
+       if(outBuf) {
+-         printf(outBuf);
++         printf("%s", outBuf);
+          free(outBuf);
+       }
+    }

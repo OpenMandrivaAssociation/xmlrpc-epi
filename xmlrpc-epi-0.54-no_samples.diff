@@ -1,0 +1,11 @@
+--- Makefile.am	2009-09-02 20:37:00.000000000 +0200
++++ Makefile.am.oden	2010-08-09 16:05:56.418433555 +0200
+@@ -1,6 +1,6 @@
+ 
+-SUBDIRS = src sample
+-DIST_SUBDIRS = src sample
++SUBDIRS = src
++DIST_SUBDIRS = src
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
