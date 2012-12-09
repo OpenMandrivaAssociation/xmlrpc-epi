@@ -89,3 +89,98 @@ rm -f %{buildroot}%{_libdir}/*.*a
 %dir %{_includedir}/xmlrpc-epi
 %{_includedir}/xmlrpc-epi/*
 %{_libdir}/lib*.so
+
+
+%changelog
+* Sun Jan 29 2012 Oden Eriksson <oeriksson@mandriva.com> 0.54.2-1
++ Revision: 769633
+- 0.54.2
+
+* Thu Dec 08 2011 Oden Eriksson <oeriksson@mandriva.com> 0.54.1-3
++ Revision: 739018
+- drop the static lib and the libtool *.la file
+- various fixes
+
+* Sat May 07 2011 Oden Eriksson <oeriksson@mandriva.com> 0.54.1-2
++ Revision: 671350
+- mass rebuild
+
+* Mon Aug 09 2010 Oden Eriksson <oeriksson@mandriva.com> 0.54.1-1mdv2011.0
++ Revision: 568118
+- 0.54.1
+
+* Sun Mar 14 2010 Oden Eriksson <oeriksson@mandriva.com> 0.54-3mdv2010.1
++ Revision: 519082
+- rebuild
+
+* Fri Jun 12 2009 Oden Eriksson <oeriksson@mandriva.com> 0.54-2mdv2010.0
++ Revision: 385409
+- use the correct libname
+- don't build the samples
+- move the header files to the correct place
+- cleanup the spec file some
+
+* Wed Jun 10 2009 Oden Eriksson <oeriksson@mandriva.com> 0.54-1mdv2010.0
++ Revision: 384837
+- 0.54
+- nuke redundant patches
+- rediffed the format string patch
+
+* Thu Dec 25 2008 Oden Eriksson <oeriksson@mandriva.com> 0.51-16mdv2009.1
++ Revision: 319111
+- fix build with -Werror=format-security (P3)
+
+* Thu Jun 19 2008 Thierry Vignaud <tv@mandriva.org> 0.51-15mdv2009.0
++ Revision: 226067
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Wed Mar 05 2008 Oden Eriksson <oeriksson@mandriva.com> 0.51-14mdv2008.1
++ Revision: 179490
+- rebuild
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Thu Jun 14 2007 Oden Eriksson <oeriksson@mandriva.com> 0.51-13mdv2008.0
++ Revision: 39325
+- fix provides (thanks blino!)
+
+* Thu Jun 14 2007 Oden Eriksson <oeriksson@mandriva.com> 0.51-12mdv2008.0
++ Revision: 39288
+- rebuild
+
+* Wed Jun 13 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 0.51-11mdv2008.0
++ Revision: 38418
+- fix building (spturtle :)
+- use hack for parallel build
+- drop br on automake1.4
+- fix mixture of tabs and spaces
+- spec file clean
+
+* Mon Apr 23 2007 Frederic Crozat <fcrozat@mandriva.com> 0.51-10mdv2008.0
++ Revision: 17465
+- Fix buildrequires
+- Patch2 (Linden Labs): link to system expat lib, don't use internal copy
+
+
+* Tue Oct 31 2006 Oden Eriksson <oeriksson@mandriva.com> 0.51-9mdv2007.0
++ Revision: 74648
+- bunzip patches
+- Import xmlrpc-epi
+
+* Tue May 23 2006 Per Øyvind Karlsen <pkarlsen@mandriva.com> 0.51-8mdk
+- rebuild
+
+* Wed Aug 10 2005 Gwenole Beauchesne <gbeauchesne@mandriva.com> 0.51-7mdk
+- gcc4 & mklibname fixes
+- drop provides libxmlrpc
+
+* Sat Aug 14 2004 Pixel <pixel@mandrakesoft.com> 0.51-6mdk
+- rebuild
+
