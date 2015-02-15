@@ -60,8 +60,8 @@ perl -pi -e "s|withval/lib|withval/%{_lib}|g" configure*
 
 %build
 autoreconf -fi
-
-%configure2_5x \
+export CC=gcc
+%configure \
     --with-expat=%{_prefix}
 
 #don't use parallel compilation, it is broken 
