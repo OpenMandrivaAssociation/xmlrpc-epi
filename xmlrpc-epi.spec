@@ -12,6 +12,7 @@ URL:		http://xmlrpc-epi.sourceforge.net
 Source0:	http://sunet.dl.sourceforge.net/sourceforge/xmlrpc-epi/xmlrpc-epi-%{version}.tar.bz2
 Patch0:		xmlrpc-epi-0.51-format_not_a_string_literal_and_no_format_arguments.diff
 Patch1:		xmlrpc-epi-0.54-no_samples.diff
+Patch2:		xmlrpc-epi-clang7.patch
 BuildRequires:	expat-devel
 
 %description
@@ -48,9 +49,7 @@ was later modified to incorporate concepts from the xmlrpc protocol.
 
 %prep
 
-%setup -q
-%patch0 -p1 -b .format_not_a_string_literal_and_no_format_arguments
-%patch1 -p0 -b .no_samples
+%autosetup -p1
 
 # Make it lib64 aware
 find . -name "Makefile.*" | xargs perl -pi -e "s,-L\@prefix\@/lib,,g"
