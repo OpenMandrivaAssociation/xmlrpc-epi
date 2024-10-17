@@ -8,7 +8,7 @@ Version:	0.54.2
 Release:	14
 License:	BSD
 Group:		System/Libraries
-URL:		http://xmlrpc-epi.sourceforge.net
+URL:		https://xmlrpc-epi.sourceforge.net
 Source0:	http://sunet.dl.sourceforge.net/sourceforge/xmlrpc-epi/xmlrpc-epi-%{version}.tar.bz2
 Patch0:		xmlrpc-epi-0.51-format_not_a_string_literal_and_no_format_arguments.diff
 Patch1:		xmlrpc-epi-0.54-no_samples.diff
