@@ -13,6 +13,11 @@ Source0:	http://sunet.dl.sourceforge.net/sourceforge/xmlrpc-epi/xmlrpc-epi-%{ver
 Patch0:		xmlrpc-epi-0.51-format_not_a_string_literal_and_no_format_arguments.diff
 Patch1:		xmlrpc-epi-0.54-no_samples.diff
 Patch2:		xmlrpc-epi-clang7.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	expat-devel
 
 %description
